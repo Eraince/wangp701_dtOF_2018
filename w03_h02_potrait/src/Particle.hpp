@@ -1,27 +1,30 @@
+//
+//  Particle.hpp
+//  w03_h02_potrait
+//
+//  Created by Peiyu Wang on 9/19/18.
+//
+
 #pragma once
 #include "ofMain.h"
 
-class Square {
+class Particle {
 public:
-    void setup(float posX, float posY, float width, float height);
+    void setup(float posX, float posY, float radius);
     void update();
     void draw();
-    void applyForce(glm::vec2 force);
-    void applyGra();
     
     
     // some extra "utility" functions -
     // return the center coordinates
     
     
-    glm::vec2 getCenter();
     
-    float w, h;
+    float r;
     glm::vec2 pos;
     glm::vec2 vel;
     glm::vec2 acc;
-
+    
     ofColor color;
     
 };
-

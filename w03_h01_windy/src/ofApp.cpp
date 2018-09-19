@@ -2,44 +2,39 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    for(int i = 0; i < 30; i++){
-        float w = ofRandom(20,50);
-        squares[i].setup(0,0,w,w);
+    ofBackground(0, 0, 0);
+    ofSetFrameRate(10);
+    for(int i = 0; i < 1; i++){
         
-        float area = squares[i].w * squares[i].h;
+        squares[i].setup(ofGetWidth()/2,i * 50,50,50);
+        
        
-        float speed = ofMap(area,400,2500,5,20);
-        cout << "square[" << i << "] area = " << area
-        << " speed = " << speed << endl;
-        squares[i].vel.x = speed;
-        squares[i].vel.y = speed;
         
-        
-//        squares[i].dirX = i + 10;
-//        squares[i].dirX = ofRandom(2,10);
-//        squares[i].dirY = -5;
-        float hue = ofMap(speed,2,20,100,200);
+        float hue = ofMap(i*50,0,500,100,200);
         squares[i].color = ofColor::fromHsb(hue,255,200);
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    for(int i = 0; i < 30; i++){
+    for(int i = 0; i < 1; i++){
         squares[i].update();
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    for(int i = 0; i < 30; i++){
+    for(int i = 0; i < 1; i++){
         squares[i].draw();
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    glm::vec2 wind = glm::vec2(0.5,0);
+    for(int i = 0; i < 1; i++){
+        squares[i].applyForce(wind);
+    }
 }
 
 //--------------------------------------------------------------

@@ -12,6 +12,7 @@ void Square::setup(float posX, float posY, float width, float height){
     
     // default to no movement yet - we can set it later
     vel = glm::vec2(0,0);
+    acc = glm::vec2(0,0);
     color = ofColor(255,255,255);
    
 }
@@ -19,42 +20,10 @@ void Square::setup(float posX, float posY, float width, float height){
 // --------------------------------------------------------
 void Square::update(){
     
-    // move: update position x and y
-    
+    applyGra();
+    vel += acc;
     pos += vel;
-    
-    // bounce:
-    
-    // check if we moved out of window frame
-    
-    if(pos.x > ofGetWidth()){
-        // if we're too far right...
-        
-        // bounce
-        pos.x = ofGetWidth();        // put back in window
-        vel.x = vel.x * -1;        // flip x movement
-        
-    }
-    else if (pos.x < 0){
-        // bounce off left edge
-
-        pos.x = 0;
-        vel.x = vel.x * -1;
-    }
-    
-    
-    if(pos.y > ofGetHeight()){
-        // bounce bottom edge
-
-        pos.y = ofGetHeight();
-        vel.y = vel.y * -1;
-    }
-    else if (pos.y < 0){
-        // or bounce top edge
-
-        pos.y = 0;
-        vel.y = vel.y * -1;
-    }
+    acc = glm::vec2(0,0);
 
 }
 
@@ -67,6 +36,14 @@ void Square::draw(){
 
 // --------------------------------------------------------
 
+void Square::applyForce(glm::vec2 force){
+    acc += force;
+}
+
+void Square::applyGra(){
+    glm::vec2 gra = glm::vec2(0,0.5);
+    acc += gra;
+}
 
 glm::vec2 Square::getCenter(){
     return glm::vec2(pos.x + w * 0.5, pos.y + h * 0.5);
