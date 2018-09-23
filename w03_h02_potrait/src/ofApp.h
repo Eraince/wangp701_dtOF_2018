@@ -21,7 +21,12 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+        vector<ofPoint> vertices;
+        vector<ofColor> colors;
+        int nTri;
+        int nVert;
+    
 		
-    Particle particles[180];
-    int count;
+    
+    
 };
