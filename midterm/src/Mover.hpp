@@ -16,8 +16,6 @@ public:
     Mover(glm::vec2 _pos);
     
     void applyForce(glm::vec2 force);
-    void applyDampingForce(float strength);
-    void applyElasticForce(float strength);
     void update();
     void draw();
     

@@ -8,8 +8,6 @@ void ofApp::setup(){
     sPressed = false;
     leg.setup(true);
     lazyLeg.setup(false);
-    cout<<leg.leftFoot.vel.y<<endl;
-
     dir = glm::vec2(0,0);
    
     for (int y=0; y<20; y++) {          // 10 columns
@@ -25,12 +23,10 @@ void ofApp::setup(){
             movers.push_back(mover);
         }
     }
-    fullText="hDo you wanna start again? Press s";
+    fullText="hDo you wanna start again? Press s.";
     textToDraw = "";
     timeBeginWait = ofGetElapsedTimeMillis();
     myFont.load("Acme-Regular.ttf",32);
-    
-   
 }
 
 //--------------------------------------------------------------

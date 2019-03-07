@@ -36,24 +36,15 @@ void Leg::update(glm::vec2 _dir){
         leftUpdate = false;
         updateFinished = true;
     }
-    cout<<"Left"<< leftFoot.vel.y<<endl;
-    cout<<"Right"<<rightFoot.vel.y<<endl;
-   
-    
 }
 
 
 void Leg::draw(){
-    
-    
     leftFoot.draw(-30);
-    
     rightFoot.draw(30);
-    
 }
 
 glm::vec2 Leg::getPos(){
     return glm::vec2((rightFoot.pos.x - leftFoot.pos.x)/2 + leftFoot.pos.x,leftFoot.pos.y);
-    
 }
 
